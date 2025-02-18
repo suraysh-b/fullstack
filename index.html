@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>SIGNUP</title>
+</head>
+<body>
+    <header>
+        <div class="div1">
+            <a href="https://www.radiantcoder.tech/">Radiant Coder</a>
+            <span class="div2">
+                <a href="https://www.radiantcoder.tech/#/login">LOGIN</a>
+                <a href="https://www.radiantcoder.tech/#/signup">SIGNUP</a>
+            </span>
+        </div>
+        <div class="div3">
+            <h6><a href="https://github.com/suraysh-b"><b>GITHUB</b></a></h6>
+        </div>
+    </header>
+    <div class="container">
+        <h1 style="color:cornflowerblue;">Signup</h1>
+        <form onsubmit="return validateForm()">
+            <input type="text" id="name" placeholder="Name" required> <br/></br>
+            <input type="email" id="email" placeholder="Email" required> <br/></br>
+            <input type="password" id="password" placeholder="Password" required> <br/></br>
+            <input type="password" id="cpassword" placeholder="Confirm Password" required> <br/></br>
+            <input list="roles" name="role" placeholder="Role" />
+                <datalist id="roles">
+                <option value="Fresher">
+                <option value="Experienced">
+                </datalist> <br/></br>
+            <input type="text" id="qualification" placeholder="Highest Qualification" required> <br/></br>
+            <input type="number" value="0" min="2000" max="2025" onfocus="this.value=''" id="graduation_year" placeholder="Graduation Year" required> <br/></br>
+            <button class="sub" type="submit">Signup</button>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            
+        }
+    </script>
+</body>
+</html>
