@@ -19,27 +19,56 @@
             <h6><a href="https://github.com/suraysh-b"><b>GITHUB</b></a></h6>
         </div>
     </header>
+</br>
     <div class="container">
         <h1 style="color:cornflowerblue;">Signup</h1>
-        <form onsubmit="return validateForm()">
-            <input type="text" id="name" placeholder="Name" required> <br/></br>
-            <input type="email" id="email" placeholder="Email" required> <br/></br>
-            <input type="password" id="password" placeholder="Password" required> <br/></br>
-            <input type="password" id="cpassword" placeholder="Confirm Password" required> <br/></br>
+        <form id="form1">
+            <input type="text" id="name" placeholder="Name"> <br/>
+            <p></p>
+        </br>
+            <input type="email" id="email" placeholder="Email"> <br/>
+            <p></p>
+        </br>
+            <input type="password" id="password" placeholder="Password"> <br/>
+            <p></p>
+        </br>
+            <input type="password" id="cpassword" placeholder="Confirm Password"> <br/>
+            <p></p>
+        </br>
             <input list="roles" name="role" placeholder="Role" />
                 <datalist id="roles">
                 <option value="Fresher">
                 <option value="Experienced">
-                </datalist> <br/></br>
-            <input type="text" id="qualification" placeholder="Highest Qualification" required> <br/></br>
-            <input type="number" value="0" min="2000" max="2025" onfocus="this.value=''" id="graduation_year" placeholder="Graduation Year" required> <br/></br>
+                </datalist> <br/>
+            <p></p>
+            </br>
+            <input type="text" id="qualification" placeholder="Highest Qualification"> <br/>
+            <p></p>
+        </br>
+            <input type="number" value="0" min="2000" max="2025" onfocus="this.value=''" id="graduation_year" placeholder="Graduation Year"> <br/>
+            <p></p>
+        </br>
             <button class="sub" type="submit">Signup</button>
         </form>
     </div>
     <script>
-        function validateForm() {
-            
-        }
+            const form =  document.getElementById('form1');
+            var formComplete = false;
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const inputs = form.querySelectorAll('input');
+                inputs.forEach((field) => {
+                    if (field.value.trim() === ''){
+                        const fieldName = field.getAttribute('placeholder');
+                        field.nextElementSibling.textContent = `${fieldName} is required. `;
+                    } else {
+                        formComplete = true;
+                    }
+                });
+                if (formComplete === true) {
+                    alert('Account created successfully');
+                }
+            });
     </script>
 </body>
 </html>
