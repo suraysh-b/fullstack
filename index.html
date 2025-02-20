@@ -36,11 +36,12 @@
             <p></p>
         </br>
             <input list="roles" name="role" placeholder="Role" />
-                <datalist id="roles">
+                 <br/>
+            <p></p>
+            <datalist id="roles">
                 <option value="Fresher">
                 <option value="Experienced">
-                </datalist> <br/>
-            <p></p>
+                </datalist>
             </br>
             <input type="text" id="qualification" placeholder="Highest Qualification"> <br/>
             <p></p>
@@ -52,19 +53,23 @@
         </form>
     </div>
     <script>
-            const form =  document.getElementById('form1');
-            var formComplete = false;
+
+            var form =  document.getElementById('form1');
+            var formComplete = true;
             form.addEventListener('submit', (event) => {
                 event.preventDefault();
                 const inputs = form.querySelectorAll('input');
                 inputs.forEach((field) => {
-                    if (field.value.trim() === ''){
+                    const errmsg = field.nextElementSibling.nextElementSibling;
+                    if (field.value.trim() === '') {
                         const fieldName = field.getAttribute('placeholder');
-                        field.nextElementSibling.textContent = `${fieldName} is required. `;
+                        errmsg.textContent = `${fieldName} is required.`;
+                        errmsg.style.color = 'red';
+                        formComplete = false;
                     } else {
-                        formComplete = true;
+                        errmsg.textContent = '';
                     }
-                });
+                    });
                 if (formComplete === true) {
                     alert('Account created successfully');
                 }
